@@ -1,0 +1,50 @@
+:root {
+  --bg: #0f1020;
+  --bg-2: #181a33;
+  --panel: #20234a;
+  --text: #eef0ff;
+  --muted: #9aa0c7;
+  --accent: #7c5cff;
+  --perfect: #4ade80;
+  --good: #fbbf24;
+  --miss: #f87171;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  /* Kein Textzoom/Scroll-Bounce am iPad */
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}

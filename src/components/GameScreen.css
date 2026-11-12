@@ -1,0 +1,207 @@
+.game {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #0c0d1c, #14152b);
+  overflow: hidden;
+}
+
+.game-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  gap: 12px;
+}
+
+.hud-back {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+.hud-info {
+  text-align: center;
+  flex: 1;
+}
+.hud-info .song {
+  font-size: 15px;
+  font-weight: 600;
+}
+.hud-info .diff {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hud-score {
+  text-align: right;
+  min-width: 90px;
+}
+.hud-score .val {
+  font-size: 22px;
+  font-weight: 700;
+}
+.hud-score .combo {
+  font-size: 12px;
+  color: var(--accent);
+  height: 14px;
+}
+
+/* Fallende-Noten-Bahn */
+.falls {
+  position: relative;
+  flex: 1;
+  margin: 0 8px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 40px
+  );
+}
+
+/* Trefferlinie unten */
+.hit-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--accent);
+  box-shadow: 0 0 16px 2px var(--accent);
+  z-index: 3;
+}
+
+.note-block {
+  position: absolute;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #a593ff, #7c5cff);
+  box-shadow: 0 0 10px rgba(124, 92, 255, 0.6);
+  opacity: 0.95;
+}
+
+/* Schwarze-Tasten-Noten: schmaler, dunklerer Ton, liegen optisch oben */
+.note-block.black {
+  background: linear-gradient(180deg, #6f5bd6, #4a37a0);
+  box-shadow: 0 0 10px rgba(74, 55, 160, 0.7);
+  z-index: 2;
+}
+.note-block.hit {
+  background: linear-gradient(180deg, #86e3a0, #4ade80);
+}
+.note-block.missed {
+  background: linear-gradient(180deg, #f8a0a0, #f87171);
+  opacity: 0.5;
+}
+
+/* Treffer-Popups – erscheinen direkt über der getroffenen Taste */
+.judge {
+  position: absolute;
+  bottom: 8px;
+  /* left kommt als Inline-Style aus der Komponente (Position der Taste) */
+  transform: translateX(-50%);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  z-index: 4;
+  pointer-events: none;
+  animation: pop 0.5s ease forwards;
+}
+.judge.perfect {
+  color: var(--perfect);
+}
+.judge.good {
+  color: var(--good);
+}
+.judge.miss {
+  color: var(--miss);
+}
+@keyframes pop {
+  0% {
+    transform: translate(-50%, 8px) scale(0.8);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, 0) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -22px) scale(1);
+    opacity: 0;
+  }
+}
+
+.countdown {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+  font-weight: 800;
+  color: var(--text);
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Übungs-Badge im HUD */
+.practice-badge {
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  vertical-align: middle;
+}
+
+/* Fortschrittsbalken oben in der Fallbahn */
+.progress-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 4;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c5cff, #5fd1c9);
+  transition: width 0.1s linear;
+}
+
+/* Steuerleiste im Practice Mode */
+.practice-bar {
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  justify-content: center;
+}
+.pbtn {
+  flex: 1;
+  max-width: 150px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.pbtn:active {
+  transform: scale(0.95);
+}
+.pbtn.primary {
+  background: var(--accent);
+}

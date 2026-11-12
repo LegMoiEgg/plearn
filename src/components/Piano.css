@@ -1,0 +1,78 @@
+.piano {
+  width: 100%;
+  padding: 0 8px 10px;
+}
+
+.piano-inner {
+  position: relative;
+  width: 100%;
+  height: 150px;
+}
+
+.white-row {
+  display: grid;
+  gap: 4px;
+  height: 100%;
+}
+
+.black-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.key {
+  position: relative;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  transition: background 0.05s ease, transform 0.05s ease;
+}
+
+.key.white {
+  background: linear-gradient(#ffffff, #e9e9f2);
+  color: #3a3a55;
+  box-shadow: 0 3px 0 #b9b9d0;
+}
+
+.key.black {
+  position: absolute;
+  top: 0;
+  height: 62%;
+  background: linear-gradient(#2a2a3d, #11111c);
+  color: #cfcfe8;
+  box-shadow: 0 3px 0 #000;
+  pointer-events: auto;
+  z-index: 2;
+  border-radius: 0 0 6px 6px;
+}
+
+.key.active.white {
+  background: linear-gradient(#d9ccff, #b9a6ff);
+  transform: translateY(2px);
+}
+
+.key.active.black {
+  background: linear-gradient(#6a53c9, #4a37a0);
+  transform: translateY(2px);
+}
+
+.key.expected.white {
+  background: linear-gradient(#bdf5c9, #86e3a0);
+}
+
+.key.expected.black {
+  background: linear-gradient(#2f7d47, #1f5c33);
+}
+
+.key-label {
+  font-size: 10px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.key.black .key-label {
+  font-size: 8px;
+}

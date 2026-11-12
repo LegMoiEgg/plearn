@@ -1,0 +1,223 @@
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  background: radial-gradient(1200px 600px at 50% -10%, #272a55, var(--bg));
+  overflow: hidden;
+}
+
+.menu-title {
+  font-size: 34px;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ff8fb1, #7c5cff, #5fd1c9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.menu-subtitle {
+  color: var(--muted);
+  margin: 6px 0 14px;
+  font-size: 14px;
+}
+
+/* Übungsmodus-Schalter */
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mode-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+.mode-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.2s ease;
+}
+.mode-toggle.on .mode-track {
+  background: var(--accent);
+}
+.mode-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+.mode-toggle.on .mode-knob {
+  transform: translateX(20px);
+}
+.mode-state {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  min-width: 28px;
+}
+.mode-toggle.on .mode-state {
+  color: var(--accent);
+}
+.mode-hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 8px 0 14px;
+  text-align: center;
+  max-width: 320px;
+}
+
+/* Swipebarer Karten-Streifen */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 40px;
+  width: 100%;
+  scrollbar-width: none;
+}
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  position: relative;
+  scroll-snap-align: center;
+  flex: 0 0 240px;
+  height: 320px;
+  border-radius: 24px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--panel);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Vorhör-Knopf oben links auf der Karte */
+.preview-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.08s ease, filter 0.15s ease;
+  z-index: 2;
+}
+.preview-btn:active {
+  transform: scale(0.9);
+}
+.preview-btn:hover {
+  filter: brightness(1.1);
+}
+
+.card-emoji {
+  font-size: 68px;
+  text-align: right;
+}
+
+.card-anime {
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.card-bpm {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.diffs {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.diff-btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.diff-btn:active {
+  transform: scale(0.95);
+}
+
+.diff-btn .hs {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(30, 32, 60, 0.85);
+  backdrop-filter: blur(4px);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Über den Karten liegen, sonst fangen überlappende Karten/Buttons
+     besonders links die Klicks ab. */
+  z-index: 10;
+}
+.nav.left {
+  left: 0;
+}
+.nav.right {
+  right: 0;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 14px;
+}
