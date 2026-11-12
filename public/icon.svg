@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2d58"/>
+      <stop offset="1" stop-color="#0f1020"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff8fb1"/>
+      <stop offset="0.5" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#5fd1c9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund mit abgerundeten Ecken (App-Icon-Look) -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- Klaviertastatur unten -->
+  <g transform="translate(96 300)">
+    <!-- weiße Tasten -->
+    <rect x="0"   y="0" width="46" height="120" rx="8" fill="#eef0ff"/>
+    <rect x="52"  y="0" width="46" height="120" rx="8" fill="#eef0ff"/>
+    <rect x="104" y="0" width="46" height="120" rx="8" fill="#eef0ff"/>
+    <rect x="156" y="0" width="46" height="120" rx="8" fill="#eef0ff"/>
+    <rect x="208" y="0" width="46" height="120" rx="8" fill="#eef0ff"/>
+    <rect x="260" y="0" width="46" height="120" rx="8" fill="#eef0ff"/>
+    <!-- eine hervorgehobene Taste in Akzentfarbe -->
+    <rect x="104" y="0" width="46" height="120" rx="8" fill="#7c5cff"/>
+    <!-- schwarze Tasten -->
+    <rect x="34"  y="0" width="26" height="74" rx="5" fill="#181a33"/>
+    <rect x="86"  y="0" width="26" height="74" rx="5" fill="#181a33"/>
+    <rect x="190" y="0" width="26" height="74" rx="5" fill="#181a33"/>
+    <rect x="242" y="0" width="26" height="74" rx="5" fill="#181a33"/>
+  </g>
+
+  <!-- Welle als "Sea"-Anklang, aus der eine Note aufsteigt -->
+  <path d="M96 232 Q160 196 224 232 T352 232 T416 220"
+        fill="none" stroke="url(#wave)" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Musiknote -->
+  <g fill="#ffd36e">
+    <ellipse cx="300" cy="188" rx="34" ry="26" transform="rotate(-18 300 188)"/>
+    <rect x="328" y="92" width="14" height="104" rx="6"/>
+    <path d="M342 92 q44 10 44 52 q0 10 -6 18 q4 -34 -38 -46 z"/>
+  </g>
+</svg>
